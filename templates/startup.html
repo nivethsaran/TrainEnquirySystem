@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'layout1.html' %}
 
 {% block title %}IRES{% endblock %}
 
@@ -45,12 +45,22 @@
 </div>
 
 
-<div class="center_button">
+
+
+
+<div class="container">
+    <div class="row">
     <form action="/login">
-        <input type="submit" value="Login" class="btn btn-lg btn-primary">
+        <input type="submit" value="Login" class="button default">
     </form>
-    <form action="/signup">
-        <input type="submit" value="SignUp" class="btn btn-lg btn-primary">
-    </form>
+    </div>
+    <div class="row">
+    <!-- <form action="/signup">
+        <input type="submit" value="SignUp" class="button default">
+    </form> -->
+    </div>
 </div>
+
+ 
+
 {% endblock %}
