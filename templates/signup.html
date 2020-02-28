@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}Raw Form Example{% endblock %}
+
+{% block content %}
+<form action="/login" method="POST" class=signupdetails>
+
+
+    <p>
+        <label for="fname">First Name</label>
+        <input id="fname" name="fname" class="form-control col-sm-4" type="text">
+    </p>
+    <p>
+        <label for="lname">Last Name</label>
+        <input id="lname" name="lname" class="form-control col-sm-4" type="text">
+    </p>
+    <p>
+        <label for="username">User Name</label>
+        <input id="username" name="username" class="form-control col-sm-4" type="text">
+    </p>
+    <p>
+        <label for="email">Email</label>
+        <input id="email" name="email" class="form-control col-sm-4" type="email">
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input id="password" name="password" class="form-control col-sm-4" type="password">
+    </p>
+    <p>
+        <label for="mobile">Mobile</label>
+        <input id="mobile" name="mobile" class="form-control col-sm-4" type="mobile">
+    </p>
+    <input type="submit" value="Sign Up">
+</form>
+
+
+
+{% endblock %}

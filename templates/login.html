@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}Railway Enquiry System{% endblock %}
+
+{% block content %}
+<form action="/login" method="POST">
+    <div class="form-group">
+<p>
+    <label for="username">User Name</label>
+    <input id="username" class="form-control col-sm-4" name="username" type="text">
+</p>
+<p>
+    <label for="password">Password</label>
+    <input id="password" class="form-control col-sm-4" name="password" type="password">
+</p>
+<input type="submit" value="Login" class="btn btn-dark">
+    </div>
+    
+</form>
+{% if message %}
+<div class="alert alert-danger col-sm-4 alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+<form action="/signup" method="POST">
+<input type="submit" value="Not already a user,create account here.." class="btn btn-link">
+</form>
+{% endblock %}

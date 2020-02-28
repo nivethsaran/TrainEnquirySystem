@@ -1,0 +1,30 @@
+html,body{
+   height:100%;
+}
+.carousel,.item,.active{
+   height:100%;
+ }
+.carousel-inner{
+    height:100%;
+}
+
+.center_button{
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    right: 50%;
+}
+
+
+.signupdetails{
+    
+	margin:100px;
+	border:1px #CCC solid;
+}
+
+.signupdetails p {
+        position: relative;
+        margin-left: 40%;
+        margin-bottom: 10px;
+	
+}
