@@ -3,7 +3,8 @@
 {% block title %}Raw Form Example{% endblock %}
 
 {% block content %}
-<form action="/signup" method="POST" class=signupdetails>
+<div class="signupdetails">
+<form action="/signup" method="POST" class="form-group">
 
 
     <p>
@@ -30,9 +31,19 @@
         <label for="mobile">Mobile</label>
         <input id="mobile" name="mobile" class="form-control col-sm-4" type="number">
     </p>
-    <input type="submit" value="Sign Up">
+    <p>
+        <input class="btn btn-dark" type="submit" value="Sign Up">
+    </p>
+
+
 </form>
 
+<form action="/login" method="GET">
+    <p>
+        <input type="submit" value="Already have a account, login here.." class="btn btn-link btn-border">
+    </p>
+</form>
+</div>
 
 
 {% endblock %}

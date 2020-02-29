@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block title %}Railway Enquiry System{% endblock %}
+
+{% block content %}
+
+
+<form action='/livestation' method="POST">
+
+<label for="choosestation">Choose a car:</label>
+
+<select id="station" name="station">
+    {% if selected %}
+    <option value={{selected}}>{{selected}}</option>
+    {% else %}
+    <option value="EMPTY">--</option>
+    {% endif %}
+    {% for listitem in list %}
+    
+    <option value={{listitem}}>{{listitem}}</option>
+    {% endfor %}
+</select>
+
+<input type="submit">
+</form>
+
+{% if trainlist %}
+<div>
+    <table style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>Scheduled Departure</th>
+        <th>Scheduled Arrival</th>
+        <th>Delayed Arrival</th>
+        <th>Actual Arrival</th>
+        <th>Delayed Departure</th>
+        <th>Actual Departure</th>
+        <th>Train Number</th>
+        <th></th>
+    </tr>
+    {% for train in trainlist%}
+    <tr>
+        <td>{{ train['name'] }}</td>
+        <td>{{ train['schdep'] }}</td>
+        <td>{{ train['scharr'] }}</td>
+        <td>{{ train['delayarr'] }}</td>
+        <td>{{ train['actarr'] }}</td>
+        <td>{{ train['delaydep'] }}</td>
+        <td>{{ train['actdep'] }}</td>
+        <td>{{ train['number'] }}</td>
+        <td><a href={{'/addtobookmarks/'+train['number']+'/'+selected.split('-')[0]}}>Bookmark this train no. </a></td>
+    </tr>
+    
+    {% endfor %}
+    </table>
+</div>
+{% endif %}
+
+
+
+{% endblock %}

@@ -4,4 +4,12 @@
 
 {% block content %}
 
+{% if session['username'] %}
+<h2>{{'Welcome '+session['fullname'] }}</h2>
+<h4>{{ 'Mobile:'+session['mobile']}}</h4>
+<h4>{{ 'Email:'+session['email']}}</h4>
+
+
+{% endif %}
+
 {% endblock %}
