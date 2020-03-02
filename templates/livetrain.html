@@ -4,6 +4,131 @@
 
 {% block content %}
 
+{% if session['username'] %}
 
+<form action='/livetrain' method="POST">
+
+    <label for="choosestation">Choose station &emsp; &nbsp;</label>
+
+    <select id="station" class="form-control" name="station">
+        {% if selected %}
+        <option value={{selected}}>{{selected}}</option>
+        {% else %}
+        <option value="EMPTY">--</option>
+        {% endif %}
+        {% for listitem in list %}
+
+        <option value={{listitem}}>{{listitem}}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="trainno">Enter train number</label>
+<input id="trainno" name="trainno" type="number" class="form-control">
+<br>    
+{% with message = get_flashed_messages() %}
+{% if message %}
+<div class="alert alertmessagecustom alert-danger col-sm-4 alert-dismissible fade show" role="alert">
+    {% for messages in message%}
+    {{messages}}
+    {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+{% endwith %}
+<input type="submit" class="btn btn-dark">
+</form>
+
+{% if trainstatus %}
+<table>
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['position'] }}</td>
+</tr>
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['status']['scharr_date'] }}</td>
+</tr>
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['status']['scharr'] }}</td>
+</tr>
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['status']['actarr_date'] }}</td>
+</tr>
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['status']['actarr'] }}</td>
+</tr>
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['status']['schdep'] }}</td>
+</tr>
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['status']['actdep'] }}</td>
+</tr>
+
+
+
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['status']['actdep'] }}</td>
+</tr>
+
+<tr>
+    <td>Position:</td>
+    <td>{{ trainstatus['status']['actdep'] }}</td>
+</tr>
+
+
+
+{% if trainstatus['status']['has_departed'] %}
+<tr>
+    <td>Has Departed?:</td>
+    <td>Yes</td>
+</tr>
+{% else %}
+<tr>
+    <td>Has Departed?:</td>
+    <td>No</td>
+</tr>
+
+{% endif %}
+
+{% if trainstatus['status']['has_arrived'] %}
+<tr>
+    <td>Has Arrived?:</td>
+    <td>Yes</td>
+</tr>
+{% else %}
+<tr>
+    <td>Has Arrived?:</td>
+    <td>No</td>
+</tr>
+
+{% endif %}
+
+
+{% if trainstatus['status']['latemin'] %}
+<tr>
+    <td>Late by:</td>
+    <td>{{trainstatus['status']['latemin']+' mins'}}</td>
+</tr>
+{% else %}
+<tr>
+    <td>Late by:</td>
+    <td>Details not available</td>
+</tr>
+{% endif %}
+
+</table>
+{% endif %}
+
+{% else %}
+<h2>Please login to use these features</h2>
+{% endif %}
 
 {% endblock %}

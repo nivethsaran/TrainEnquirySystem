@@ -20,15 +20,18 @@
 <input type="submit" value="Login" class="btn btn-dark">
 </p>
 </form>
+{% with message = get_flashed_messages() %}
 {% if message %}
 <div class="alert alertmessagecustom alert-danger col-sm-4 alert-dismissible fade show" role="alert">
-    {{message}}
+    {% for messages in message%}
+    {{messages}}
+    {% endfor %}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 {% endif %}
-
+{% endwith %}
 <form action="/signup" method="GET">
     <p>
     <input type="submit" value="Not already a user,create account here.." class="btn btn-link btn-border">
