@@ -1,6 +1,7 @@
 html,body{
    height:100%;
    background-color: #ccedd2;
+   font-family: 'Ubuntu',sans-serif ;
 }
 .carousel,.item,.active{
    height:100%;
@@ -26,6 +27,13 @@ html,body{
 }
 
 .signupdetails p {
+        position: relative;
+        margin-left: 40%;
+        margin-bottom: 10px;
+	
+}
+
+.signupdetails h2 {
         position: relative;
         margin-left: 40%;
         margin-bottom: 10px;
